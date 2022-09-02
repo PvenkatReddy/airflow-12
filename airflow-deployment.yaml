@@ -1,27 +1,25 @@
-# This YAML exposes the fields defined in the UI. It can be edited directly or have new YAML pasted in.
-# Not all available Kubernetes properties are recognized by the form exposed in the UI, and unrecognized properties are ignored during import.
-# If the required properties are not supported by this step, the 'Deploy raw Kubernetes YAML' step can be used to deploy YAML directly to Kubernetes, and supports all properties.
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: airflow-deployment
-  labels:
+metadata: 
+  labels: 
     app: airflow
-spec:
-  selector:
-    matchLabels:
-      octopusexport: OctopusExport
+  name: airflow-deployment
+spec: 
   replicas: 1
-  strategy:
+  selector: 
+    matchLabels: 
+      octopusexport: OctopusExport
+  strategy: 
     type: RollingUpdate
-  template:
-    metadata:
-      labels:
+  template: 
+    metadata: 
+      labels: 
         app: airflow
         octopusexport: OctopusExport
-    spec:
-      containers:
-        - name: airflow
+    spec: 
+      containers: 
+        - 
           image: apache/airflow
-          ports:
-            - containerPort: 80
+          name: airflow
+          ports: 
+            ? "-containerPort": 80
