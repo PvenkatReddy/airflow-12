@@ -25,4 +25,3 @@ spec:
           image: apache/airflow
           ports:
             - containerPort: 80
-
